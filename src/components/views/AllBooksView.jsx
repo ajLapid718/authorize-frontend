@@ -11,3 +11,5 @@ const AllBooksView = (props) => {
     </div>
   )
 }
+
+export default AllBooksView;
