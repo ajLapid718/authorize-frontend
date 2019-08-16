@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchAllBooksThunk } from "../../thunks";
+import { fetchAllBooksThunk, logout } from "../../thunks";
 import { AllBooksView } from "../views";
 
 class AllBooksContainer extends Component {
@@ -8,8 +8,12 @@ class AllBooksContainer extends Component {
     this.props.fetchAllBooks();
   }
 
+  handleLogout = () => {
+    this.props.logout();
+  }
+
   render() {
-    return <AllBooksView books={this.props.books}/>
+    return <AllBooksView books={this.props.books} handleLogout={this.props.logout}/>
   }
 }
 
@@ -21,7 +25,8 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    fetchAllBooks: () => dispatch(fetchAllBooksThunk())
+    fetchAllBooks: () => dispatch(fetchAllBooksThunk()),
+    logout: () => dispatch(logout())
   }
 }
 

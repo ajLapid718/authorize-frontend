@@ -8,14 +8,14 @@ const RoutesView = (props) => {
   return (
     <Switch>
       {/* Routes placed within this section are available to all visitors */}
-      <Route path="/login" component={Login} />
-      <Route path="/signup" component={Signup} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/signup" component={Signup} />
 
       {isLoggedIn && (
         <Switch>
           {/* Routes placed within this section are only available after
           logging in */}
-          <Route path="/books" component={AllBooksContainer} />
+          <Route exact path="/books" component={AllBooksContainer} />
         </Switch>
       )}
 
