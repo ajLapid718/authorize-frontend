@@ -4,7 +4,7 @@ const AllBooksView = (props) => {
   return (
     <div>
       {props.books.map(book => (
-        <div id={book.id}>
+        <div key={book.id}>
           <h1>{book.title}</h1>
         </div>
       ))}
