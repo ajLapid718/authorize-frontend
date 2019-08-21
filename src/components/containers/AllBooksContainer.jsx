@@ -8,8 +8,13 @@ class AllBooksContainer extends Component {
     this.props.fetchAllBooks();
   }
 
+  handleLogout = () => {
+    this.props.logout();
+    this.props.history.push("/login");
+  }
+
   render() {
-    return <AllBooksView books={this.props.books} handleLogout={this.props.logout}/>
+    return <AllBooksView books={this.props.books} handleLogout={this.handleLogout}/>
   }
 }
 

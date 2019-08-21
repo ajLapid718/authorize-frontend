@@ -1,10 +1,11 @@
 import React from "react";
 
 const AuthFormView = props => {
-  const { name, displayName, handleSubmit, error, handleChange } = props;
+  const { name, displayName, handleSubmit, error, handleChange, isLoggedIn, userEmail } = props;
 
   return (
     <div>
+      {isLoggedIn ? `The current logged in user is: ${userEmail}` : ""}
       <form onSubmit={handleSubmit} name={name}>
         <div>
           <label htmlFor="email">
