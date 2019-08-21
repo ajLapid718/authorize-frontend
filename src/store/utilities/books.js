@@ -14,7 +14,7 @@ const fetchAllBooks = (books) => {
 // THUNK CREATORS;
 export const fetchAllBooksThunk = () => async dispatch => {
   try {
-    const { data } = await axios.get("http://localhost:5000/api/books", { withCredentials: true });
+    const { data } = await axios.get("http://localhost:5000/api/books");
     dispatch(fetchAllBooks(data));
   }
   catch (err) {
