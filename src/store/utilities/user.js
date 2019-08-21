@@ -21,7 +21,7 @@ const removeUser = () => {
 // THUNK CREATORS
 export const me = () => async dispatch => {
   try {
-    const res = await axios.get("/auth/me");
+    const res = await axios.get("http://localhost:5000/auth/me", { withCredentials: true });
     dispatch(getUser(res.data || {}));
   }
   catch (err) {
@@ -32,7 +32,7 @@ export const me = () => async dispatch => {
 export const auth = (email, password, method) => async dispatch => {
   let res;
   try {
-    res = await axios.post(`/auth/${method}`, { email, password });
+    res = await axios.post(`http://localhost:5000/auth/${method}`, { email, password }, { withCredentials: true });
   }
   catch (authError) {
     return dispatch(getUser({ error: authError }));
@@ -48,7 +48,7 @@ export const auth = (email, password, method) => async dispatch => {
 
 export const logout = () => async dispatch => {
   try {
-    await axios.post("/auth/logout");
+    await axios.delete("http://localhost:5000/auth/logout", { withCredentials: true });
     dispatch(removeUser());
   }
   catch (err) {
